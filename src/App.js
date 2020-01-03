@@ -47,5 +47,5 @@ const AppContainer = createAppContainer(AppNavigator);
 
 export default () =>
   <Root>
-    <AppContainer />
+    <AppContainer style={mainStyles.body}/>
   </Root>;
