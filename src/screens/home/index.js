@@ -9,12 +9,10 @@ class Home extends Component {
   render() {
     return (
         <Container>
-            <StatusBar barStyle="light-content" />
             <TopHeader {...this.props}/>
             <View style={{ marginBottom: 80 }}>
- 
+          
             </View>
-
         </Container>
     );
   }
