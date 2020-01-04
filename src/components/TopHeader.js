@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
-import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
-import { headerStyles } from './styles'
-import { primary, dark } from '../colors'
+import { StatusBar } from 'react-native'
+import { Toolbar } from 'react-native-material-ui';
+import { offBlack } from '../colors'
 
 export default class TopHeader extends Component {
   render() {
     return (
-      <Header androidStatusBarColor={dark} style={headerStyles.background}>
-        <Left>
-          <Button onPress={() => this.props.navigation.openDrawer()} transparent>
-              <Icon style={headerStyles.text} name='menu'/>
-          </Button>
-        </Left>
-        <Body>
-          <Title style={headerStyles.text}>Accessory Guide</Title>
-        </Body>
-      </Header>
+      <>
+      <StatusBar backgroundColor={offBlack} />
+      <Toolbar
+        centerElement="Accessory Guide"
+        rightElement={{
+            menu: {
+                icon: "menu",
+                labels: ["Exercises", "Settings"]
+            }
+        }}
+        onRightElementPress={ (label) => { console.log(label) }}
+      />
+      </>
     );
   }
 }
