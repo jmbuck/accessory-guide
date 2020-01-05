@@ -12,34 +12,18 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 
 import Home from "./screens/home/";
 import Settings from "./screens/settings/";
-import SideBar from "./components/SideBar";
 
 import { mainStyles } from './styles'
-import { primary } from './colors'
 
-const Drawer = createDrawerNavigator(
+const AppNavigator = createStackNavigator(
   {
     Home: { screen: Home },
     Settings: { screen: Settings },
   },
   {
     initialRouteName: "Home",
-    contentOptions: {
-      activeTintColor: "#e91e63"
-    },
-    contentComponent: props => <SideBar {...props} />
-  }
-);
-
-const AppNavigator = createStackNavigator(
-  {
-    Drawer: { screen: Drawer },
-
-
-  },
-  {
-    initialRouteName: "Drawer",
-    headerMode: "none"
+    headerMode: "none",
+    cardStyle: mainStyles.body,
   }
 );
 
@@ -47,5 +31,5 @@ const AppContainer = createAppContainer(AppNavigator);
 
 export default () =>
   <Root>
-    <AppContainer style={mainStyles.body}/>
+    <AppContainer/>
   </Root>;

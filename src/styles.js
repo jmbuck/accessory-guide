@@ -1,8 +1,8 @@
-import { offWhite, primary, secondary, dark, light } from './colors'
+import { offWhite, lightGray } from './colors'
 
 // Main Styles
 export const mainStyles = {
     body: {
-        backgroundColor: offWhite,
+        backgroundColor: lightGray,
     }
 }

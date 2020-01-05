@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Container, Card, Content, CardItem, Body, Text, Form, Label, Input, Item } from "native-base";
+import { View, Text } from 'react-native'
+import { Card, Icon } from 'react-native-material-ui'
+import moment from 'moment'
 
 import TopHeader from '../../components/TopHeader'
 import GenerateForm from '../../components/GenerateForm'
@@ -7,37 +9,19 @@ import styles from "./styles";
 
 class Home extends Component {
   render() {
+    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', dateStyle: 'full' };
     return (
       <>
         <TopHeader {...this.props}/>   
-        <Container style={styles.body}>      
-          <Content>
-            <Card style={styles.dateCard}>
-              <CardItem style={styles.dateCardItem}>
-                <Body>
-                  <Text style={styles.text}>
-                    DATE
-                  </Text>
-                </Body>
-              </CardItem>
-            </Card>
-
-            <Card style={styles.generateCard}>
-              <CardItem header bordered style={styles.generateCardHeader}>
-                <Body>
-                  <Text style={styles.text}>
-                    Generate A Workout
-                  </Text>
-                </Body>
-              </CardItem>
-              <CardItem bordered style={styles.generateCardForm}>
-                <Content>
-                  <GenerateForm /> 
-                </Content>
-              </CardItem>
-            </Card>
-          </Content>
-        </Container>
+        <View style={styles.body}> 
+          <Card>
+            <View style={styles.dateCard}>
+              <Icon name="chevron-left" size={42} style={styles.icon}/>
+              <Text style={styles.dateText}>{moment(new Date()).format('LL')}</Text>
+              <Icon name="chevron-right" size={42} style={styles.icon}/>
+            </View>
+          </Card>     
+        </View>
       </>
     );
   }

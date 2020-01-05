@@ -1,4 +1,4 @@
-import { offWhite, light, dark } from '../../colors'
+import { offWhite, light, offBlack } from '../../colors'
 
 const React = require("react-native");
 const { Dimensions, Platform } = React;
@@ -6,19 +6,26 @@ const deviceHeight = Dimensions.get("window").height;
 
 export default {
   body: {
-    backgroundColor: offWhite,
-    paddingTop: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingTop: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   dateCard: {
-    // TODO: Border Radius
+    paddingTop: 12,
+    paddingBottom: 12,
+    paddingLeft: 5,
+    paddingRight: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
-  dateCardItem: {
-    backgroundColor: light,
+  dateText: {
+    color: offBlack,
+    fontSize: 20,
+    fontWeight: 'bold',
   },
-  text: {
-    color: dark,
+  icon: {
+    color: offBlack
   },
   generateCard: {
     // TODO: Border Radius
