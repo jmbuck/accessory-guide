@@ -17,10 +17,19 @@ class Home extends Component {
           <Card>
             <View style={styles.dateCard}>
               <Icon name="chevron-left" size={42} style={styles.icon}/>
-              <Text style={styles.dateText}>{moment(new Date()).format('LL')}</Text>
+              <View style={styles.dateTextContainer}>
+                <Icon name="date-range" size={28} style={styles.icon}/>
+                <Text style={styles.dateText}>{moment(new Date()).format('LL')}</Text>
+              </View>
               <Icon name="chevron-right" size={42} style={styles.icon}/>
             </View>
           </Card>     
+
+          <Card>
+            <View style={styles.generateCard}>
+              <GenerateForm />
+            </View>
+          </Card>    
         </View>
       </>
     );

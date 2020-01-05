@@ -19,7 +19,11 @@ export default {
     alignItems: 'center',
     justifyContent: 'space-between'
   },
+  dateTextContainer: {
+    flexDirection: 'row'
+  },
   dateText: {
+    marginLeft: 7,
     color: offBlack,
     fontSize: 20,
     fontWeight: 'bold',
@@ -28,7 +32,10 @@ export default {
     color: offBlack
   },
   generateCard: {
-    // TODO: Border Radius
+    paddingTop: 12,
+    paddingBottom: 12,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   generateCardHeader: {
     backgroundColor: light,
