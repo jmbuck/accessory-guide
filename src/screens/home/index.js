@@ -12,8 +12,9 @@ class Home extends Component {
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', dateStyle: 'full' };
     return (
       <>
+        <ScrollView>
         <TopHeader {...this.props}/>   
-        <ScrollView style={styles.body}> 
+        <View style={styles.body}> 
           <Card>
             <View style={styles.dateCard}>
               <Icon name="chevron-left" size={42} style={styles.icon}/>
@@ -30,6 +31,7 @@ class Home extends Component {
               <GenerateForm />
             </View>
           </Card>    
+        </View>
         </ScrollView>
       </>
     );

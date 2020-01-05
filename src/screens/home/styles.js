@@ -1,14 +1,12 @@
 import { offWhite, light, offBlack } from '../../colors'
 
-const React = require("react-native");
-const { Dimensions, Platform } = React;
-const deviceHeight = Dimensions.get("window").height;
 
 export default {
   body: {
     paddingTop: 20,
     paddingLeft: 20,
     paddingRight: 20,
+    paddingBottom: 20,
   },
   dateCard: {
     paddingTop: 12,
