@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import { Card, Icon } from 'react-native-material-ui'
 import moment from 'moment'
 
@@ -13,7 +13,7 @@ class Home extends Component {
     return (
       <>
         <TopHeader {...this.props}/>   
-        <View style={styles.body}> 
+        <ScrollView style={styles.body}> 
           <Card>
             <View style={styles.dateCard}>
               <Icon name="chevron-left" size={42} style={styles.icon}/>
@@ -30,7 +30,7 @@ class Home extends Component {
               <GenerateForm />
             </View>
           </Card>    
-        </View>
+        </ScrollView>
       </>
     );
   }
