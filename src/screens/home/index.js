@@ -1,19 +1,17 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 import { Card, Icon } from 'react-native-material-ui'
 import moment from 'moment'
 
 import TopHeader from '../../components/TopHeader'
 import GenerateForm from '../../components/GenerateForm'
-import styles from "./styles";
+import styles from './styles'
 
 class Home extends Component {
   render() {
-    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', dateStyle: 'full' };
     return (
-      <>
-        <ScrollView>
-        <TopHeader {...this.props}/>   
+      <ScrollView>
+        <TopHeader home={true} {...this.props}/>   
         <View style={styles.body}> 
           <Card>
             <View style={styles.dateCard}>
@@ -32,8 +30,7 @@ class Home extends Component {
             </View>
           </Card>    
         </View>
-        </ScrollView>
-      </>
+      </ScrollView>
     );
   }
 }

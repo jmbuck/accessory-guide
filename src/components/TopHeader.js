@@ -4,11 +4,18 @@ import { Toolbar } from 'react-native-material-ui';
 import { offBlack } from '../colors'
 
 export default class TopHeader extends Component {
+  navigateToScreen = (label) => {
+    if(label.index === 0) {
+      // Exercises
+      this.props.navigation.navigate('Exercises')
+    }
+  }
   render() {
     return (
       <>
       <StatusBar backgroundColor={offBlack} />
       <Toolbar
+        leftElement={this.props.home ? null : 'arrow-back'}
         centerElement="Accessory Guide"
         rightElement={{
             menu: {
@@ -16,7 +23,8 @@ export default class TopHeader extends Component {
                 labels: ["Exercises", "Settings"]
             }
         }}
-        onRightElementPress={ (label) => { console.log(label) }}
+        onRightElementPress={this.navigateToScreen}
+        onLeftElementPress={() => this.props.navigation.goBack()}
       />
       </>
     );

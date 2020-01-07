@@ -1,4 +1,4 @@
-export const SCHEMA_VERSION = 1
+export const schemaVersion = 1
 
 export const migration = (oldRealm, newRealm) => {
     //Upgrade to schema version 1
@@ -17,7 +17,7 @@ export const migration = (oldRealm, newRealm) => {
         newExercises[i] = oldExercises[i]
       }
     }
-  }
+}
 
 export const WorkoutSchema = {
     name: 'Workout',

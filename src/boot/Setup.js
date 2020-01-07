@@ -5,7 +5,7 @@ import { ThemeContext, getTheme } from 'react-native-material-ui'
 
 import App from '../App'
 import { offWhite, primary, accent, offBlack, lightOffBlack, lightGray } from '../colors'
-import { WorkoutSchema, SetSchema, ExerciseSchema, SCHEMA_VERSION, migration } from '../schema'
+import { WorkoutSchema, SetSchema, ExerciseSchema, schemaVersion, migration } from '../schema'
 import { setDatabase, closeDatabase } from '../redux/actions'
 
 const uiTheme = {
@@ -34,7 +34,7 @@ class Setup extends Component {
   componentDidMount() {
     Realm.open({
       schema: [WorkoutSchema, SetSchema, ExerciseSchema],
-      schemaVersion: SCHEMA_VERSION,
+      schemaVersion: schemaVersion,
       migration: migration,
     }).then(realm => {
       this.props.setDatabase(realm)
