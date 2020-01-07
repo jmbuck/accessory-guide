@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { TextField } from 'react-native-material-textfield'
-import { Button, Divider } from 'react-native-material-ui'
+import { Button } from 'react-native-material-ui'
   
 import { formStyles } from './styles'
+import Divider from './Divider'
 import { offBlack, accent, lightOffBlack, error } from '../colors'
 
 export default class GenerateForm extends Component {
@@ -111,7 +112,7 @@ export default class GenerateForm extends Component {
           />
           </View>
         </View>
-        {!isLast && <View style={formStyles.divider} />}
+        {!isLast && <Divider />}
       </>
      )
   }

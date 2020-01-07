@@ -36,6 +36,16 @@ export const formStyles = {
     textField: {
         width: 80,
     },
+}
+
+export const exerciseListStyles = {
+    listHeader: {
+        fontSize: 18,
+        fontWeight: 'bold'
+    }
+}
+
+export const dividerStyles = {
     divider: {
         backgroundColor: lightOffBlack,
         height: 0.25,
