@@ -69,7 +69,7 @@ export default class GenerateForm extends Component {
     // TODO: Generate a workout, update database
   }
 
-  renderFormSection = (sectionHeader, defaultReps, defaultExercises) => {
+  renderFormSection = (sectionHeader, defaultReps, defaultExercises, isLast) => {
     let { errors, values } = this.state
     const minRepsKey = sectionHeader + 'MinReps'
     const numExercisesKey = sectionHeader + 'NumExercises'
@@ -78,8 +78,7 @@ export default class GenerateForm extends Component {
     if(!values[numExercisesKey]) values[numExercisesKey] = defaultExercises.toString()
     
     return (
-      <>
-        
+      <>     
         <View style={formStyles.formSection}>    
           <Text style={formStyles.sectionHeader}>{sectionHeader} Exercises</Text>       
           <View style={formStyles.textField}>
@@ -112,7 +111,7 @@ export default class GenerateForm extends Component {
           />
           </View>
         </View>
-        <View style={formStyles.divider} />
+        {!isLast && <View style={formStyles.divider} />}
       </>
      )
   }
@@ -124,13 +123,14 @@ export default class GenerateForm extends Component {
         {this.renderFormSection('Pull', 50, 1)}
         {this.renderFormSection('Push', 50, 1)}
         {this.renderFormSection('Legs', 30, 1)}
-        {this.renderFormSection('Core', 30, 1)}
+        {this.renderFormSection('Core', 30, 1, true)}
         <Button 
           raised 
           accent 
           text="Generate A Workout" 
           onPress={this.handleSubmit} 
-          disabled={isErrored}/>
+          disabled={isErrored}
+        />
       </>
     );
   }

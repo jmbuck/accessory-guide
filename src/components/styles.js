@@ -11,9 +11,10 @@ export const headerStyles = {
 }
 
 // GenerateForm
+// TODO: Get line to show up under last section inputs
 export const formStyles = {
     submitButton: {
-
+        paddingTop: 50
     },
     text: {
         color: offBlack,
