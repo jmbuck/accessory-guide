@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { TextField } from 'react-native-material-textfield'
-import { Button } from 'react-native-material-ui'
+import { Button, Divider } from 'react-native-material-ui'
   
 import { formStyles } from './styles'
 import { offBlack, accent, lightOffBlack, error } from '../colors'
@@ -37,9 +37,9 @@ export default class GenerateForm extends Component {
           // Number is in a valid range
           errors[key] = null
         } else if(num < 10) {
-          errors[key] = 'Minimum reps should be 10 or more'
+          errors[key] = 'Must be at least 10'
         } else {
-          errors[key] = 'Minimum reps should be 200 or fewer'
+          errors[key] = 'Must be 200 or fewer'
         }
       } else {
         // # of Exercises
@@ -47,9 +47,9 @@ export default class GenerateForm extends Component {
           // Number is in a valid range
           errors[key] = null 
         } else if(num < 1) {
-          errors[key] = '# of exercises should be 1 or more'
+          errors[key] = 'Must be at least 1'
         } else {
-          errors[key] = '# of exercies should be 5 or fewer'
+          errors[key] = 'Must be 5 or fewer'
         }
       }
     } else {
@@ -78,34 +78,42 @@ export default class GenerateForm extends Component {
     if(!values[numExercisesKey]) values[numExercisesKey] = defaultExercises.toString()
     
     return (
-       <View>         
-         <Text>{sectionHeader}</Text>  
-         <TextField 
-           label="Min Reps"
-           textColor={offBlack}
-           activeLineWidth={1}
-           tintColor={accent}
-           baseColor={lightOffBlack}
-           errorColor={error}
-           error={errors[minRepsKey]}
-           defaultValue={defaultReps.toString()}
-           value={values[minRepsKey]}
-           onChangeText={(text) => this.onChange(text, minRepsKey, 'reps')}
-         />
- 
-         <TextField 
-           label="# of Exercises"
-           textColor={offBlack}
-           activeLineWidth={1}
-           tintColor={accent}
-           baseColor={lightOffBlack}
-           errorColor={error}
-           error={errors[numExercisesKey]}
-           defaultValue={defaultExercises.toString()}
-           value={values[numExercisesKey]}
-           onChangeText={(text) => this.onChange(text, numExercisesKey, 'exercises')}
-         />
-       </View>
+      <>
+        
+        <View style={formStyles.formSection}>    
+          <Text style={formStyles.sectionHeader}>{sectionHeader} Exercises</Text>       
+          <View style={formStyles.textField}>
+            <TextField 
+              label="Min Reps"
+              textColor={offBlack}
+              activeLineWidth={1}
+              tintColor={accent}
+              baseColor={lightOffBlack}
+              errorColor={error}
+              error={errors[minRepsKey]}
+              defaultValue={defaultReps.toString()}
+              value={values[minRepsKey]}
+              onChangeText={(text) => this.onChange(text, minRepsKey, 'reps')}
+            />
+          </View>
+
+          <View style={formStyles.textField}>
+          <TextField 
+            label="Exercises"
+            textColor={offBlack}
+            activeLineWidth={1}
+            tintColor={accent}
+            baseColor={lightOffBlack}
+            errorColor={error}
+            error={errors[numExercisesKey]}
+            defaultValue={defaultExercises.toString()}
+            value={values[numExercisesKey]}
+            onChangeText={(text) => this.onChange(text, numExercisesKey, 'exercises')}
+          />
+          </View>
+        </View>
+        <View style={formStyles.divider} />
+      </>
      )
   }
 
@@ -119,7 +127,7 @@ export default class GenerateForm extends Component {
         {this.renderFormSection('Core', 30, 1)}
         <Button 
           raised 
-          primary 
+          accent 
           text="Generate A Workout" 
           onPress={this.handleSubmit} 
           disabled={isErrored}/>

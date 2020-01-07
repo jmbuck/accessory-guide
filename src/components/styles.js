@@ -1,4 +1,4 @@
-import { offWhite, primary, secondary, dark, light } from '../colors'
+import { offWhite, primary, accent, offBlack, lightOffBlack } from '../colors'
 
 // TopHeader
 export const headerStyles = {
@@ -13,11 +13,30 @@ export const headerStyles = {
 // GenerateForm
 export const formStyles = {
     submitButton: {
-        backgroundColor: dark,
-        flex: 1,
-        alignItems: 'center'
+
     },
     text: {
-        color: offWhite,
+        color: offBlack,
+    },
+    sectionHeader: {
+        marginTop: 15,
+        fontSize: 16,
+        width: 70,
+        color: offBlack,
+    },
+    formSection: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        height: 80,
+        marginBottom: 10,
+    },
+    textField: {
+        width: 80,
+    },
+    divider: {
+        backgroundColor: lightOffBlack,
+        height: 0.25,
     }
 }

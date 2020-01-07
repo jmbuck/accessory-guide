@@ -30,10 +30,9 @@ export default {
     color: offBlack
   },
   generateCard: {
-    paddingTop: 12,
-    paddingBottom: 12,
+    paddingBottom: 20,
     paddingLeft: 10,
-    paddingRight: 10,
+    paddingRight: 20,
   },
   generateCardHeader: {
     backgroundColor: light,
