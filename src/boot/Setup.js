@@ -1,8 +1,12 @@
-import React, { Component } from "react";
-import { ThemeContext, getTheme } from 'react-native-material-ui';
+import React, { Component } from 'react'
+import Realm from 'realm'
+import { connect } from 'react-redux'
+import { ThemeContext, getTheme } from 'react-native-material-ui'
 
-import App from "../App";
-import { offWhite, primary, accent, light, offBlack, lightOffBlack, lightGray } from '../colors'
+import App from '../App'
+import { offWhite, primary, accent, offBlack, lightOffBlack, lightGray } from '../colors'
+import { WorkoutSchema, SetSchema, ExerciseSchema, SCHEMA_VERSION, migration } from '../schema'
+import { setDatabase, closeDatabase } from '../redux/actions'
 
 const uiTheme = {
   palette: {
@@ -25,7 +29,25 @@ const uiTheme = {
   },
 };
 
-export default class Setup extends Component {
+class Setup extends Component {
+
+  componentDidMount() {
+    Realm.open({
+      schema: [WorkoutSchema, SetSchema, ExerciseSchema],
+      schemaVersion: SCHEMA_VERSION,
+      migration: migration,
+    }).then(realm => {
+      this.props.setDatabase(realm)
+    });
+  }
+
+  componentWillUnmount() {
+    // Close the realm if there is one open.
+    if (this.props.realm !== null && !this.props.realm.isClosed) {
+      this.props.closeDatabase(realm)
+    }
+  }
+
   render() {
     // Add StyleProvider below for custom theme
     return (
@@ -35,3 +57,18 @@ export default class Setup extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    realm: state.database ? state.database.realm : null,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setDatabase: (realm) => dispatch(setDatabase(realm)),
+    closeDatabase: (realm) => dispatch(closeDatabase(realm)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Setup)
