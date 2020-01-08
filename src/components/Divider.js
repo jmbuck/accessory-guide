@@ -6,7 +6,7 @@ import { dividerStyles } from './styles'
 export default class Divider extends Component {
   render() {
     return (
-      <View style={dividerStyles.divider} />
+      <View style={this.props.thick? dividerStyles.thickDivider : dividerStyles.divider} />
     );
   }
 }

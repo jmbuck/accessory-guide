@@ -42,6 +42,24 @@ export const exerciseListStyles = {
     listHeader: {
         fontSize: 18,
         fontWeight: 'bold'
+    },
+    listItem: {
+        flex: 2,
+        justifyContent: 'space-evenly',
+    },
+    exerciseName: {
+        flex: 1,
+        paddingTop: 5,
+        fontSize: 16,
+    },
+    exerciseInfo: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+    },
+    exerciseInfoText: {
+        fontSize: 12,
+        marginRight: 10,
     }
 }
 
@@ -49,5 +67,9 @@ export const dividerStyles = {
     divider: {
         backgroundColor: lightOffBlack,
         height: 0.25,
+    },
+    thickDivider: {
+        backgroundColor: lightOffBlack,
+        height: 0.75,
     }
 }
