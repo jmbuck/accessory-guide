@@ -13,6 +13,7 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 import Home from "./screens/home/";
 import Exercises from "./screens/exercises/";
 import Settings from "./screens/settings/";
+import AddExercise from "./screens/add-exercise/"
 
 import { mainStyles } from './styles'
 
@@ -20,6 +21,7 @@ const AppNavigator = createStackNavigator(
   {
     Home: { screen: Home },
     Exercises: { screen: Exercises },
+    AddExercise: { screen: AddExercise },
     Settings: { screen: Settings },
   },
   {

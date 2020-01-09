@@ -9,8 +9,6 @@ export default {
     paddingBottom: 20,
   },
   dateCard: {
-    paddingTop: 12,
-    paddingBottom: 12,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
